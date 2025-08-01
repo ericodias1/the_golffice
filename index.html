@@ -196,22 +196,22 @@
     const password = 'Partners#2025';
 
     function authenticate() {
-      const username = prompt('Enter username:');
-      if (username === null) {
-          alert('Incorrect credentials');
+      const usernameInput = prompt('Enter username:');
+      if (usernameInput === null) {
+          alert('Invalid credentials. Please try again.');
           return authenticate();
         }
 
-        const password = prompt('Enter password:');
-        if (password === null) {
-          alert('Incorrect credentials');
+        const passwordInput = prompt('Enter password:');
+        if (passwordInput === null) {
+          alert('Invalid credentials. Please try again.');
           return authenticate();
         }
 
-        if (username === validUsername && password === validPassword) {
+        if (username === usernameInput && password === passwordInput) {
           return true;
         } else {
-          alert('Incorrect credentials');
+          alert('Invalid credentials. Please try again.');
           authenticate();
         }
     }
