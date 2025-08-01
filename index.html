@@ -168,7 +168,7 @@
       if (code === '321321') {
         window.location.href = 'choose-platform.html'; // Redireciona
       } else {
-        alert('Código inválido');
+        alert('Invalid code');
         inputs.forEach(input => input.value = '');
         inputs[0].focus();
       }
@@ -184,7 +184,7 @@
           video.srcObject = stream;
         })
         .catch(err => {
-          alert('Não foi possível acessar a câmera: ' + err);
+          alert('It was not possible to access the camera: ' + err);
         });
     }
 
