@@ -190,5 +190,33 @@
 
     window.onload = () => inputs[0].focus();
   </script>
+
+  <script>
+    const username = 'MyCustomApp';
+    const password = 'Partners#2025';
+
+    function authenticate() {
+      const username = prompt('Enter username:');
+      if (username === null) {
+          alert('Incorrect credentials');
+          return authenticate();
+        }
+
+        const password = prompt('Enter password:');
+        if (password === null) {
+          alert('Incorrect credentials');
+          return authenticate();
+        }
+
+        if (username === validUsername && password === validPassword) {
+          return true;
+        } else {
+          alert('Incorrect credentials');
+          authenticate();
+        }
+    }
+
+    authenticate();
+  </script>
 </body>
 </html>
