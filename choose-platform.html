@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Simulator - Sim Golf Logic</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1535132011086-b8818f016104?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .headline {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .simulator-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent;
+      max-width: 300px;
+    }
+
+    .simulator-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #13502E;
+      border-color: #13502E;
+    }
+
+    .simulator-card img {
+      max-width: 160px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .simulator-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #13502E;
+    }
+
+    @media (max-width: 480px) {
+      .headline {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="http://www.thegolffice.com/wp-content/uploads/2025/01/Image-1-1.png" alt="Sim Golf Logic Logo" />
+    </div>
+
+    <div class="headline">Select Your Golf Simulator</div>
+    <div class="subtext">“Your best round starts with the right simulator.”</div>
+
+    <div class="simulator-grid">
+      <div class="simulator-card" onclick="selectSimulator('gspro')">
+        <img src="https://golfsimdepot.com/cdn/shop/files/GSPro-1024x312.webp?v=1740530644&width=1024" alt="GSPro Logo" />
+        <div class="simulator-name">GSPro</div>
+      </div>
+
+      <div class="simulator-card" onclick="selectSimulator('uneekor')">
+        <img src="https://uneekor.com/img/logos/uneekor_logo_black.webp" alt="Uneekor Logo" />
+        <div class="simulator-name">Uneekor</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectSimulator(simulator) {
+      window.location.href = `choose-course.html?simulator=${simulator}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sim Golf Logic - Auth Code</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1535132011086-b8818f016104?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #13502E;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: rgba(13, 13, 13, 0.95);
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .auth-container {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    input[type="text"] {
+      width: 50px;
+      height: 60px;
+      font-size: 2rem;
+      text-align: center;
+      background-color: #1c1c1c;
+      border: 2px solid #333;
+      border-radius: 12px;
+      color: white;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #13502E;
+      box-shadow: 0 0 10px #13502E;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .qr-button {
+      background-color: #13502E;
+      color: #fff;
+      border: 2px solid #13502E;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .qr-button:hover {
+      background-color: #13502E90;
+      border-color: #13502E90;
+    }
+
+    #camera {
+      margin-top: 20px;
+      border: 2px solid #13502E;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 4 / 3;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 480px) {
+      input[type="text"] {
+        width: 40px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="http://www.thegolffice.com/wp-content/uploads/2025/01/Image-1-1.png" />
+    </div>
+    <div class="card">
+      <form id="auth-form" class="auth-container" autocomplete="off">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+        <input type="submit" class="hidden" />
+      </form>
+      <button class="qr-button" onclick="openCamera()">or Scan QR Code</button>
+      <div id="camera"><video id="video" autoplay muted></video></div>
+    </div>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll('#auth-form input[type="text"]');
+
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        if (input.value.length === 1) {
+          if (index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          } else {
+            submitCode();
+          }
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && input.value === '' && index > 0) {
+          inputs[index - 1].focus();
+        }
+      });
+    });
+
+    function submitCode() {
+      const code = Array.from(inputs).map(input => input.value).join('');
+      if (code === '321321') {
+        window.location.href = 'choose-platform.html'; // Redireciona
+      } else {
+        alert('Código inválido');
+        inputs.forEach(input => input.value = '');
+        inputs[0].focus();
+      }
+    }
+
+    function openCamera() {
+      const camera = document.getElementById('camera');
+      const video = document.getElementById('video');
+      camera.style.display = 'block';
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+        })
+        .catch(err => {
+          alert('Não foi possível acessar a câmera: ' + err);
+        });
+    }
+
+    window.onload = () => inputs[0].focus();
+  </script>
+</body>
+</html>
