@@ -122,6 +122,21 @@
       border: 2px solid #FFD000;
       transform: scale(1.03);
     }
+    body {
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .fun-btn {
+      transition: all 0.25s ease-in-out;
+    }
+    .fun-btn.active {
+      background-color: #FFD000;
+      color: black;
+      transform: scale(1.03);
+    }
 </style>
 </head>
 <body>
@@ -144,7 +159,7 @@
 
 <main>
     <div class="left-section">
-      <div class="mode-card">
+      <!-- <div class="mode-card">
         <h2>Virtual Fairway League</h2>
         <p>All Balls Count - 32 players - 10 weeks</p>
       </div>
@@ -162,11 +177,16 @@
       <div class="mode-card">
         <h2>eGolf Championship Series</h2>
         <p>Stableford - 20 players - 12 weeks</p>
-      </div>
-        <!-- <div class="fun-title">FUN WITH FRIENDS</div>
-        <a href="#" class="fun-btn">SCRAMBLE</a>
-        <a href="#" class="fun-btn">FOURSOMES</a>
-        <a href="#" class="fun-btn">FOUR-BALL</a> -->
+      </div> -->
+
+        <div class="mode-card">
+          <h2>League Play</h2>
+          <p>Compete in a fun, competitive environment over multiple rounds using a verity of games and formats.</p>
+        </div>
+        <div class="fun-title">COMPLETE OVER MULTIPLE ROUNDS</div>
+        <a href="#" class="fun-btn">Thursday Scramble League</a>
+        <a href="#" class="fun-btn">Tuesday Scratch League</a>
+        <a href="#" class="fun-btn">Weekly Flex League</a>
     </div>
     <div class="right-section">
         <a href="new_league.html" class="new-game-btn">NEW LEAGUE 🏌️</a>
@@ -177,10 +197,10 @@
     <span class="u-logo">U</span> UNEEKOR
 </footer>
 <script>
-  document.querySelectorAll('.mode-card').forEach(card => {
+  document.querySelectorAll('.fun-btn').forEach(card => {
   card.addEventListener('click', () => {
     // Remove active de todos os cards
-    document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.fun-btn').forEach(c => c.classList.remove('active'));
     // Adiciona active no card clicado
     card.classList.add('active');
   });
