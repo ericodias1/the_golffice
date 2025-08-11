@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unekoor</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        background-image: radial-gradient(circle at center, #222 0%, #111 100%);
+        color: white;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .logo {
+        background-color: #000;
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .top-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    .top-btn {
+        background-color: #333;
+        border: none;
+        padding: 8px 15px;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    .nav-btn {
+        background-color: white;
+        color: black;
+        padding: 12px 25px;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .nav-btn.active {
+        background-color: #FFD000;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 40px;
+    }
+    .left-section {
+        max-width: 400px;
+    }
+    .mode-card {
+        background-color: #FFD000;
+        color: black;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+    }
+    .fun-title {
+        margin: 10px 0;
+        font-weight: bold;
+        color: #ccc;
+    }
+    .fun-btn {
+        display: block;
+        background-color: #333;
+        padding: 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .right-section {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .new-game-btn {
+        background-color: #FFD000;
+        color: black;
+        padding: 15px 30px;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .u-logo {
+        color: #FFD000;
+    }
+    .mode-card.active {
+      background-color:transparent;
+      color: #FFD000;
+      border: 2px solid #FFD000;
+      transform: scale(1.03);
+    }
+    body {
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .fun-btn {
+      transition: all 0.25s ease-in-out;
+      flex: 1;
+    }
+    .fun-btn-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .fun-btn-container svg {
+      width: 20px;
+      height: 20px;
+    }
+    .fun-btn.active {
+      background-color: #FFD000;
+      color: black;
+      transform: scale(1.03);
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Eye Mini Demo</div>
+    <div class="top-buttons">
+        <button class="top-btn">OPTION</button>
+        <button class="top-btn">QUIT</button>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html" class="nav-btn">LOCAL PLAY</a>
+    <button class="nav-btn">ONLINE MATCH</button>
+    <a href="leagues.html" class="nav-btn active">LEAGUE</a>
+    <button class="nav-btn">MINI GAMES</button>
+    <button class="nav-btn">PRACTICE</button>
+</nav>
+
+<main>
+    <div class="left-section">
+      <!-- <div class="mode-card">
+        <h2>Virtual Fairway League</h2>
+        <p>All Balls Count - 32 players - 10 weeks</p>
+      </div>
+
+      <div class="mode-card">
+        <h2>Simulator Masters Cup</h2>
+        <p>Best Ball - 24 players - 8 weeks</p>
+      </div>
+
+      <div class="mode-card">
+        <h2>Digital Greens Challenge</h2>
+        <p>Scramble - 16 players - 6 weeks</p>
+      </div>
+
+      <div class="mode-card">
+        <h2>eGolf Championship Series</h2>
+        <p>Stableford - 20 players - 12 weeks</p>
+      </div> -->
+
+        <div class="mode-card">
+          <h2>Single Round Event</h2>
+          <p>Compete in a fun, competitive environment for a single round with the format of your liking.</p>
+        </div>
+        <div class="fun-title">COMPLETE OVER MULTIPLE ROUNDS</div>
+
+        <div class="fun-btn-container">
+            <a href="#" class="fun-btn">4th of July Event</a>
+            <a href="https://app.simgolflogic.com/dashboards/businesses/1">
+                <svg fill="#FFD000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.973 45.973" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M43.454,18.443h-2.437c-0.453-1.766-1.16-3.42-2.082-4.933l1.752-1.756c0.473-0.473,0.733-1.104,0.733-1.774 c0-0.669-0.262-1.301-0.733-1.773l-2.92-2.917c-0.947-0.948-2.602-0.947-3.545-0.001l-1.826,1.815 C30.9,6.232,29.296,5.56,27.529,5.128V2.52c0-1.383-1.105-2.52-2.488-2.52h-4.128c-1.383,0-2.471,1.137-2.471,2.52v2.607 c-1.766,0.431-3.38,1.104-4.878,1.977l-1.825-1.815c-0.946-0.948-2.602-0.947-3.551-0.001L5.27,8.205 C4.802,8.672,4.535,9.318,4.535,9.978c0,0.669,0.259,1.299,0.733,1.772l1.752,1.76c-0.921,1.513-1.629,3.167-2.081,4.933H2.501 C1.117,18.443,0,19.555,0,20.935v4.125c0,1.384,1.117,2.471,2.501,2.471h2.438c0.452,1.766,1.159,3.43,2.079,4.943l-1.752,1.763 c-0.474,0.473-0.734,1.106-0.734,1.776s0.261,1.303,0.734,1.776l2.92,2.919c0.474,0.473,1.103,0.733,1.772,0.733 s1.299-0.261,1.773-0.733l1.833-1.816c1.498,0.873,3.112,1.545,4.878,1.978v2.604c0,1.383,1.088,2.498,2.471,2.498h4.128 c1.383,0,2.488-1.115,2.488-2.498v-2.605c1.767-0.432,3.371-1.104,4.869-1.977l1.817,1.812c0.474,0.475,1.104,0.735,1.775,0.735 c0.67,0,1.301-0.261,1.774-0.733l2.92-2.917c0.473-0.472,0.732-1.103,0.734-1.772c0-0.67-0.262-1.299-0.734-1.773l-1.75-1.77 c0.92-1.514,1.627-3.179,2.08-4.943h2.438c1.383,0,2.52-1.087,2.52-2.471v-4.125C45.973,19.555,44.837,18.443,43.454,18.443z M22.976,30.85c-4.378,0-7.928-3.517-7.928-7.852c0-4.338,3.55-7.85,7.928-7.85c4.379,0,7.931,3.512,7.931,7.85 C30.906,27.334,27.355,30.85,22.976,30.85z"></path> </g> </g> </g></svg>
+            </a>
+        </div>
+        <div class="fun-btn-container">
+            <a href="#" class="fun-btn">Greenville Chamber Golf Day</a>
+            <a href="https://app.simgolflogic.com/dashboards/businesses/1">
+                <svg fill="#FFD000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.973 45.973" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M43.454,18.443h-2.437c-0.453-1.766-1.16-3.42-2.082-4.933l1.752-1.756c0.473-0.473,0.733-1.104,0.733-1.774 c0-0.669-0.262-1.301-0.733-1.773l-2.92-2.917c-0.947-0.948-2.602-0.947-3.545-0.001l-1.826,1.815 C30.9,6.232,29.296,5.56,27.529,5.128V2.52c0-1.383-1.105-2.52-2.488-2.52h-4.128c-1.383,0-2.471,1.137-2.471,2.52v2.607 c-1.766,0.431-3.38,1.104-4.878,1.977l-1.825-1.815c-0.946-0.948-2.602-0.947-3.551-0.001L5.27,8.205 C4.802,8.672,4.535,9.318,4.535,9.978c0,0.669,0.259,1.299,0.733,1.772l1.752,1.76c-0.921,1.513-1.629,3.167-2.081,4.933H2.501 C1.117,18.443,0,19.555,0,20.935v4.125c0,1.384,1.117,2.471,2.501,2.471h2.438c0.452,1.766,1.159,3.43,2.079,4.943l-1.752,1.763 c-0.474,0.473-0.734,1.106-0.734,1.776s0.261,1.303,0.734,1.776l2.92,2.919c0.474,0.473,1.103,0.733,1.772,0.733 s1.299-0.261,1.773-0.733l1.833-1.816c1.498,0.873,3.112,1.545,4.878,1.978v2.604c0,1.383,1.088,2.498,2.471,2.498h4.128 c1.383,0,2.488-1.115,2.488-2.498v-2.605c1.767-0.432,3.371-1.104,4.869-1.977l1.817,1.812c0.474,0.475,1.104,0.735,1.775,0.735 c0.67,0,1.301-0.261,1.774-0.733l2.92-2.917c0.473-0.472,0.732-1.103,0.734-1.772c0-0.67-0.262-1.299-0.734-1.773l-1.75-1.77 c0.92-1.514,1.627-3.179,2.08-4.943h2.438c1.383,0,2.52-1.087,2.52-2.471v-4.125C45.973,19.555,44.837,18.443,43.454,18.443z M22.976,30.85c-4.378,0-7.928-3.517-7.928-7.852c0-4.338,3.55-7.85,7.928-7.85c4.379,0,7.931,3.512,7.931,7.85 C30.906,27.334,27.355,30.85,22.976,30.85z"></path> </g> </g> </g></svg>
+            </a>
+        </div>
+        <div class="fun-btn-container">
+            <a href="#" class="fun-btn">Skins Game 8/16/25</a>
+            <a href="https://app.simgolflogic.com/dashboards/businesses/1">
+                <svg fill="#FFD000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.973 45.973" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M43.454,18.443h-2.437c-0.453-1.766-1.16-3.42-2.082-4.933l1.752-1.756c0.473-0.473,0.733-1.104,0.733-1.774 c0-0.669-0.262-1.301-0.733-1.773l-2.92-2.917c-0.947-0.948-2.602-0.947-3.545-0.001l-1.826,1.815 C30.9,6.232,29.296,5.56,27.529,5.128V2.52c0-1.383-1.105-2.52-2.488-2.52h-4.128c-1.383,0-2.471,1.137-2.471,2.52v2.607 c-1.766,0.431-3.38,1.104-4.878,1.977l-1.825-1.815c-0.946-0.948-2.602-0.947-3.551-0.001L5.27,8.205 C4.802,8.672,4.535,9.318,4.535,9.978c0,0.669,0.259,1.299,0.733,1.772l1.752,1.76c-0.921,1.513-1.629,3.167-2.081,4.933H2.501 C1.117,18.443,0,19.555,0,20.935v4.125c0,1.384,1.117,2.471,2.501,2.471h2.438c0.452,1.766,1.159,3.43,2.079,4.943l-1.752,1.763 c-0.474,0.473-0.734,1.106-0.734,1.776s0.261,1.303,0.734,1.776l2.92,2.919c0.474,0.473,1.103,0.733,1.772,0.733 s1.299-0.261,1.773-0.733l1.833-1.816c1.498,0.873,3.112,1.545,4.878,1.978v2.604c0,1.383,1.088,2.498,2.471,2.498h4.128 c1.383,0,2.488-1.115,2.488-2.498v-2.605c1.767-0.432,3.371-1.104,4.869-1.977l1.817,1.812c0.474,0.475,1.104,0.735,1.775,0.735 c0.67,0,1.301-0.261,1.774-0.733l2.92-2.917c0.473-0.472,0.732-1.103,0.734-1.772c0-0.67-0.262-1.299-0.734-1.773l-1.75-1.77 c0.92-1.514,1.627-3.179,2.08-4.943h2.438c1.383,0,2.52-1.087,2.52-2.471v-4.125C45.973,19.555,44.837,18.443,43.454,18.443z M22.976,30.85c-4.378,0-7.928-3.517-7.928-7.852c0-4.338,3.55-7.85,7.928-7.85c4.379,0,7.931,3.512,7.931,7.85 C30.906,27.334,27.355,30.85,22.976,30.85z"></path> </g> </g> </g></svg>
+            </a>
+        </div>
+    </div>
+    <div class="right-section">
+        <a href="new_league.html" class="new-game-btn">NEW EVENT 🏌️</a>
+    </div>
+</main>
+
+<footer>
+    <span class="u-logo">U</span> UNEEKOR
+</footer>
+<script>
+  document.querySelectorAll('.fun-btn').forEach(card => {
+  card.addEventListener('click', () => {
+    // Remove active de todos os cards
+    document.querySelectorAll('.fun-btn').forEach(c => c.classList.remove('active'));
+    // Adiciona active no card clicado
+    card.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
