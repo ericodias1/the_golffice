@@ -71,6 +71,8 @@
         padding: 15px;
         border-radius: 4px;
         margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
     }
     .fun-title {
         margin: 10px 0;
@@ -113,6 +115,12 @@
     .u-logo {
         color: #FFD000;
     }
+    .mode-card.active {
+      background-color:transparent;
+      color: #FFD000;
+      border: 2px solid #FFD000;
+      transform: scale(1.03);
+    }
 </style>
 </head>
 <body>
@@ -126,9 +134,9 @@
 </header>
 
 <nav>
-    <button class="nav-btn active">LOCAL PLAY</button>
+  <a href="index.html" class="nav-btn">LOCAL PLAY</a>
     <button class="nav-btn">ONLINE MATCH</button>
-    <a href="leagues.html" class="nav-btn">LEAGUE</a>
+    <a href="leagues.html" class="nav-btn active">LEAGUE</a>
     <button class="nav-btn">MINI GAMES</button>
     <button class="nav-btn">PRACTICE</button>
 </nav>
@@ -136,16 +144,36 @@
 <main>
     <div class="left-section">
         <div class="mode-card">
-            <h2>ROUND PLAY</h2>
-            <p>Compete to achieve the lowest score across the entire course. Every stroke matters in this classic game mode.</p>
+            <h2>All Balls Count</h2>
+            <p>In All Balls Count, every player’s score on each hole adds to the team total — no scores are discarded.</p>
         </div>
-        <div class="fun-title">FUN WITH FRIENDS</div>
+        <div class="mode-card">
+          <h2>Best Ball</h2>
+          <p>Each player plays their own ball, and the lowest score on each hole counts as the team’s score.</p>
+        </div>
+
+        <div class="mode-card">
+          <h2>Scramble</h2>
+          <p>All players hit from the same spot, choose the best shot, then all play from there until the hole is completed.</p>
+        </div>
+
+        <div class="mode-card">
+          <h2>Alternate Shot</h2>
+          <p>Players take turns hitting the same ball, alternating shots until the hole is finished.</p>
+        </div>
+
+        <div class="mode-card">
+          <h2>Stableford</h2>
+          <p>Points are awarded on each hole based on score relative to par, and the highest point total wins.</p>
+        </div>
+
+        <!-- <div class="fun-title">FUN WITH FRIENDS</div>
         <a href="#" class="fun-btn">SCRAMBLE</a>
         <a href="#" class="fun-btn">FOURSOMES</a>
-        <a href="#" class="fun-btn">FOUR-BALL</a>
+        <a href="#" class="fun-btn">FOUR-BALL</a> -->
     </div>
     <div class="right-section">
-        <button class="new-game-btn">NEW GAME 🏌️</button>
+        <button class="new-game-btn">CREATE LEAGUE 🏌️</button>
     </div>
 </main>
 
@@ -153,5 +181,18 @@
     <span class="u-logo">U</span> UNEEKOR
 </footer>
 
+<script>
+  document.querySelector('.new-game-btn').addEventListener('click', () => {
+    alert('Coming Soon');
+  });
+  document.querySelectorAll('.mode-card').forEach(card => {
+  card.addEventListener('click', () => {
+    // Remove active de todos os cards
+    document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('active'));
+    // Adiciona active no card clicado
+    card.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
